@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      style="
+        height: 100vg;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      "
+    >
+      <h1>Todo List</h1>
+      <form id="form">
+        <input id="input" type="text" />
+        <button type="submit">ADD</button>
+      </form>
+      <ul id="lista-todo"></ul>
+    </div>
+    <script>
+      const getForm = document.getElementById("form");
+      getForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const getInput = document.getElementById("input");
+        const inputValue = getInput.value;
+        getInput.value = "";
+        const ulElem = document.querySelector("ul");
+        const liElem = document.createElement("li");
+        liElem.textContent = inputValue;
+        ulElem.appendChild(liElem);
+        liElem.addEventListener("click", function (event) {
+          this.remove();
+        });
+      });
+
+      console.log("carregou o js");
+    </script>
+  </body>
+</html>
